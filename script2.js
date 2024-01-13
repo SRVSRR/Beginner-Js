@@ -4,11 +4,18 @@ const target =  Math.round(Math.random() *100);
 
 let guesses = 0;
 
-console.log(target)
-const guess = Number(prompt("Guess the number (0-100):"))
+while (true) {
+    guesses++ ;
 
-if (guess>target) {
+const guess = Number(prompt("Guess the number (0-100):"));
+if (guess > target) {
     console.log("Your guess is too high");
-} else if (guess<target){
+} else if (guess < target){
     console.log("Your guess is too low");
+} else {
+    console.log("You guessed it!");
+    break;
 }
+}
+
+console.log("You guessed the answer in", guesses, "tries");
