@@ -17,3 +17,11 @@ if (answer2.toUpperCase() === correct_answer2) {
     console.log("You got it correct");
 } else {    console.log("You got it wrong");
 }
+
+const answer3 = prompt("What is the recommended amount of RAM?");
+const correct_answer3 = "16GB";
+
+if (answer3.toUpperCase() === correct_answer3) {
+    console.log("You got it correct");
+} else {    console.log("You got it wrong");
+}
