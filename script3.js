@@ -4,12 +4,38 @@ let wins = 0;
 let losses = 0;
 let ties = 0;
 
-const choice = prompt("Enter rock,paper or scissors: ")
-if (choice !== "rock" && choice !== "paper" & choice !== "scissors") {
-    console.log("Please enter a valid choice.");
+while (true) {
+const playerChoice = prompt("Enter rock,paper or scissors (or q to quit): ");
+
+if (playerChoice.toLowerCase() === "q") {
+    break;
 }
 
-const choices = ["rock", "paper", "scissor"] ;
+if (playerChoice !== "rock" && playerChoice !== "paper" && playerChoice !== "scissors") {
+    console.log("Please enter a valid choice.");
+    continue;
+}
+
+const choices = ["rock", "paper", "scissors"] ;
 const randomIndex =  Math.round(Math.random() * 2);
 const computerChoice = choices[randomIndex];
-console.log(computerChoice);
+
+console.log("The Computer chose:", computerChoice);
+
+if (computerChoice === playerChoice) {
+    console.log("DRAW");
+    ties++;
+} else if (
+    (playerChoice === "paper" && computerChoice === "rock") || 
+    (playerChoice === "rock" && computerChoice === "scissors") ||
+    (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+    console.log("WON");
+    wins++;
+} else {
+    console.log("Loss");
+    losses++;
+}
+}
+
+console.log("Wins", wins, "Losses", losses, "Ties",ties);
